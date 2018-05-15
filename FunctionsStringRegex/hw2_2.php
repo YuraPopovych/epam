@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 #header('Content-Type: text/html; charset=utf-8');
+=======
+#NOT FINISHED!!!
+header('Content-Type: text/html; charset=utf-8');
+>>>>>>> f914c949262c89d67fc06c97ba69b53065a128fc
 /*
  2)
  Є рядок наступного вигляду: 4 літери, потім пробіл, потім ще 4 літери. Наприклад, такий рядок 'ФЫВА олдж'.
@@ -48,4 +53,22 @@ function utf8_strrev($str){
     return join('',array_reverse($ar[0]));
 }
 echo utf8_strrev($var);
+<<<<<<< HEAD
 */
+=======
+*/
+
+$var = 'ФЫВА олдж';
+
+$ar  = explode(" ", $var);
+
+for($k = 0; $k < count($ar); $k++){
+    for ($i = -1; $i >= (mb_strlen($ar[$k]) * (-1)); $i--) {
+        $ar[$k] =   mb_substr($ar[$k], $i, 1);
+    }
+}
+#echo mb_substr($test,-4,2);
+#echo mb_substr($test,-1,2);
+
+print_r($ar);
+>>>>>>> f914c949262c89d67fc06c97ba69b53065a128fc
