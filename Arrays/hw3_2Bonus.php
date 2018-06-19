@@ -8,9 +8,6 @@ You need to find out a unique value in array, you are given arrays:
 
  */
 
-
-
-
 function uniqueValue($array)
 {
     /*$ar1 = [ 1, 1, 1, 2, 1, 1 ];
