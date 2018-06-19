@@ -11,15 +11,17 @@ You need to find out a unique value in array, you are given arrays:
 
 
 
-function uniqueValue(array $array)
+function uniqueValue($array)
 {
     /*$ar1 = [ 1, 1, 1, 2, 1, 1 ];
     $ar2 = [ 0, 0, 0.55, 0, 0 ];
     $ar3 = [3,1,5,3,7,4,1,5,7] ;*/
-    if (count($array) == 0) {
-        return "Void array is not allowed";
+    if (!is_array($array)) {
+        return "Only array values allowed!";
     }
-
+    if (count($array) == 0) {
+        return "Void array is not allowed!";
+    }
     for ($i = 0; $i < count($array); $i++) {
         if (is_float($array[$i])) {
             settype($array[$i], "string");
