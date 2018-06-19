@@ -17,7 +17,7 @@ require './Arrays/hw3_2Bonus.php';
 
 
 
-class CalculateTest  extends TestCase
+class HomeWorkTest  extends TestCase
 {
     /**
      * @return array
