@@ -6,16 +6,9 @@
  * Time: 18:34
  */
 
-
 namespace tests\HomeWorkTest;
-
 use PHPUnit\Framework\TestCase;
-
-
-
 require './Arrays/hw3_2Bonus.php';
-
-
 
 class HomeWorkTest  extends TestCase
 {
@@ -32,8 +25,11 @@ class HomeWorkTest  extends TestCase
         ];
     }
 
-    /** @test Positive
+    /**
+     * @test
+     * Positive
      * @dataProvider PositiveValDataProvider
+     *
      */
     public function ValueUniqueTestSucess($input, $expected)
     {
@@ -55,15 +51,14 @@ class HomeWorkTest  extends TestCase
         ];
     }
 
-    /** @test Negative
+    /**
+     * @test Negative
      * @dataProvider NegativeValDataProvider
+     *
      */
     public function ValueUniqueTestFail($input, $expected)
     {
         $result = uniqueValue($input);
         $this->assertEquals($expected, $result);
     }
-
-
-
 }
