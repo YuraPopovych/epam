@@ -149,3 +149,4 @@ the sum of left side of the index ([1]) and the sum of the right side of the ind
 * TaskWithStatePattern  
   * Моделюємо зміну статусу завдання (state).  
   
+
