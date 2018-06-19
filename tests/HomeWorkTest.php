@@ -48,7 +48,10 @@ class HomeWorkTest  extends TestCase
     public function NegativeValDataProvider()
     {
         return [
-            [[], "Void array is not allowed"],
+            [123, "Only array values allowed!"],
+            [[], "Void array is not allowed!"],
+            [[2,2,2], false],
+
         ];
     }
 
