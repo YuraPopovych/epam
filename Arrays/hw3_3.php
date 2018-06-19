@@ -43,22 +43,24 @@ $books = [
     ]
 ];
 
-array_multisort(array_column($books,'price'),SORT_ASC,$books);
 
-foreach ($books as $n){
-    if(array_key_exists('tags',$n)){
-        if(in_array('php',$n['tags'])){
-            $booksSortedExists[] = $n;
+function price($books)
+{
+    array_multisort(array_column($books, 'price'), SORT_ASC, $books);
+
+    foreach ($books as $n) {
+        if (array_key_exists('tags', $n)) {
+            if (in_array('php', $n['tags'])) {
+                $booksSortedExists[] = $n;
+            }
+
         }
-
     }
+    return $booksSortedExists;
 }
 
-?>
+echo  '<pre>'  , print_r(price($books)) ,  '</pre>';
 
-<pre>
-    <?php
-        print_r($booksSortedExists);
 
-    ?>
-</pre>
+
+

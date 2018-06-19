@@ -2,7 +2,8 @@
 
 /*
 1)You are going to be given an array of integers.
-Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N.
+Your job is to take that array and find an index N
+where the sum of the integers to the left of N is equal to the sum of the integers to the right of N.
 If there is no index that would make this happen, return -1.
 
 For example:
@@ -17,7 +18,7 @@ You need to test the solution on the next arrays:
 [20,10,-80,10,10,15,35]
 [10,-80,10,10,15,35]
 
-
+result:3,1,-1,-1
  */
 
 $ar = [1,2,3,4,3,2,1];
@@ -27,31 +28,31 @@ $ar4 =[10,-80,10,10,15,35];
 
 
 
-#left sum
+// left sum
 function arraySumLeft($array)
 {
-    $sumLeft = $array;
 
-    for ($i = 0; $i < count($sumLeft); $i++) {
-        $sumLeft[$i] = null;
-    }
+    $count = count($array);
+    $sumLeft = array_fill(0,$count,null);
 
     for ($i = 1; $i < count($sumLeft); $i++) {
         for ($n = 0; $n < $i; $n++) {
             $sumLeft[$i] += $array[$n];
         }
     }
+
+
+
     return $sumLeft;
 }
 
 
-#right sum
+// right sum
 function arraySumRight($array)
 {
-    $sumRight = $array;
-    for ($i = 0; $i < count($sumRight); $i++) {
-        $sumRight[$i] = null;
-    }
+
+    $count = count($array);
+    $sumRight = array_fill(0,$count,null);
 
     for ($i = (count($sumRight)) - 1; $i > 0; $i--) {
         for ($n = count($sumRight) - 1; $n > $i; $n--) {
@@ -61,31 +62,37 @@ function arraySumRight($array)
     return $sumRight;
 }
 
-#equal index check
-function indexEqualSum($leftSum, $rightSum){
+// equal index check
+function indexEqualSum($leftSum, $rightSum)
+{
     $a = null;
-    for ($i = 0; $i < count($leftSum); $i++){
-        if($leftSum[$i] !== null and  $rightSum[$i] !== null){
-            if($leftSum[$i] === $rightSum[$i]){
+    for ($i = 0; $i < count($leftSum); $i++) {
+        if ($leftSum[$i] !== null and  $rightSum[$i] !== null) {
+            if ($leftSum[$i] === $rightSum[$i]) {
                 $a = $i;
             }
         }
     }
-    if($a !== null) {
-        return $a;
-    }
-    else{
-        return -1;
-    }
+
+    return ($a != null)? $a : -1;
 }
 
 
 
 
-echo indexEqualSum(arraySumLeft($ar),arraySumRight($ar)) . "<br>";
-echo indexEqualSum(arraySumLeft($ar2),arraySumRight($ar2)) . "<br>";
-echo indexEqualSum(arraySumLeft($ar3),arraySumRight($ar3)) . "<br>";
-echo indexEqualSum(arraySumLeft($ar4),arraySumRight($ar4)) . "<br>";
+echo indexEqualSum(arraySumLeft($ar), arraySumRight($ar)) . "<br>";
+echo indexEqualSum(arraySumLeft($ar2), arraySumRight($ar2)) . "<br>";
+echo indexEqualSum(arraySumLeft($ar3), arraySumRight($ar3)) . "<br>";
+echo indexEqualSum(arraySumLeft($ar4), arraySumRight($ar4)) . "<br>";
+?>
+
+
+<pre>
+    <?php print_r(arraySumLeft($ar));
+        echo '<br>';
+        print_r(arraySumRight($ar));
+    ?>
+</pre>
 
 
 

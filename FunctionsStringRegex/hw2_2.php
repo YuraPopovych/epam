@@ -1,9 +1,10 @@
 <?php
-#header('Content-Type: text/html; charset=utf-8');
+// header('Content-Type: text/html; charset=utf-8');
 /*
- 2)
- Є рядок наступного вигляду: 4 літери, потім пробіл, потім ще 4 літери. Наприклад, такий рядок 'ФЫВА олдж'.
- Треба перетворити на наступний рядок 'АВЫФ ждло'. !!!! UTF-8
+2)
+Є рядок наступного вигляду: 4 літери, потім пробіл, потім ще 4 літери.
+Наприклад, такий рядок 'ФЫВА олдж'.
+Треба перетворити на наступний рядок 'АВЫФ ждло'. !!!! UTF-8
  */
 
 
@@ -13,16 +14,17 @@ function stringSpaceReverse($str)
 {
     $ar = explode(" ", $str);
 
+    $len = count($ar);
+
     $ar2 = $ar;
 
-    for ($i = 0; $i < count($ar2); $i++) {
+    for ($i = 0; $i < $len; $i++) {
         $ar2[$i] = '';
     }
 
-    for ($k = 0; $k < count($ar); $k++) {
+    for ($k = 0; $k < $len; $k++) {
         for ($i = -1; $i >= (mb_strlen($ar[$k]) * (-1)); $i--) {
             $ar2[$k] .= mb_substr($ar[$k], $i, 1);
-
         }
     }
 
@@ -35,14 +37,14 @@ echo stringSpaceReverse($var);
 
 /*
 
-#UTF-8 reverse string example from some blog#
+UTF-8 reverse string example from some blog
 $var = 'ФЫВА олдж';
 $var = iconv('utf-8', 'utf-16le', $var);
 $var = strrev($var);
 echo iconv('utf-16be', 'utf-8', $var);
 
 
-#UTF-8 reverse string example from stackoverflow#
+UTF-8 reverse string example from stackoverflow
 function utf8_strrev($str){
     preg_match_all('/./us', $str, $ar);
     return join('',array_reverse($ar[0]));
