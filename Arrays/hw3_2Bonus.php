@@ -12,17 +12,21 @@ function uniqueValue($array)
     $ar2 = [ 0, 0, 0.55, 0, 0 ];
     $ar3 = [3,1,5,3,7,4,1,5,7] ;*/
     if (!is_array($array)) {
-        return "Only array values allowed!";
+        throw new InvalidArgumentException('Only array values allowed!');
     }
     if (count($array) == 0) {
-        return "Void array is not allowed!";
+        throw new InvalidArgumentException('Void array is not allowed!');
     }
     for ($i = 0; $i < count($array); $i++) {
         if (is_float($array[$i])) {
-            settype($array[$i], "string");
+            settype($array[$i], 'string');
         }
     }
-    return array_search(1, array_count_values($array));
+    $result = array_search(1, array_count_values($array));
+    if ($result === false){
+        throw new InvalidArgumentException('Unique value in array required!');
+    }
+    return $result;
 }
 /*
 uniqueValue($ar1);
