@@ -139,14 +139,5 @@ the sum of left side of the index ([1]) and the sum of the right side of the ind
 [ 0, 0, 0.55, 0, 0 ] => 0.55  
 [3,1,5,3,7,4,1,5,7] => 4
 
-## Objects and Classes
 
-* FlowerStore 
-  * Моделюємо роботу магазину квітів і сувенірів.  
-* FlowerStoreWithDecoratorAndStrategyPattern 
-  * Доповнюємо магазин можливістю вибору форми оплати та доставки (strategy) 
-та додатковими сервісами (decorator).
-* TaskWithStatePattern  
-  * Моделюємо зміну статусу завдання (state).  
-  
 
